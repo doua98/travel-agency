@@ -3,172 +3,263 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f3f7f4;
+
+  background-image: url("/my-react-app/src/assets/travel-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   padding: 24px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Soft overlay to make the form readable */
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 75, 90, 0.22),
+    rgba(255, 157, 75, 0.12)
+  );
+  z-index: -1;
+}
+
 .loginCard {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 560px;
-  background-color: #ffffff;
-  border-radius: 22px;
-  padding: 48px 48px 42px;
-  box-shadow: 0 12px 35px rgba(19, 74, 51, 0.12);
-  border: 1px solid #dbe7df;
+  max-width: 490px;
+  box-sizing: border-box;
+  padding: 42px 45px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.91);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+
+  box-shadow:
+    0 25px 65px rgba(0, 65, 80, 0.30),
+    0 8px 25px rgba(255, 145, 65, 0.20);
+
+  backdrop-filter: blur(12px);
+  animation: cardAppear 0.7s ease;
+}
+
+.loginCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(
+    90deg,
+    #00b8b0,
+    #ffc34d,
+    #ff805d,
+    #00b8b0
+  );
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .logo {
   margin: 0;
   text-align: center;
-  font-size: 3rem;
-  font-weight: 800;
-  color: #1f7a53;
-  letter-spacing: -1px;
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+
+  background: linear-gradient(120deg, #007e91, #00b8a9, #ff895b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .slogan {
-  margin: 10px 0 34px;
+  margin: 12px 0 35px;
   text-align: center;
-  font-size: 1rem;
-  color: #4f6f61;
-  font-weight: 500;
+  font-size: 0.92rem;
+  color: #66858a;
+  font-weight: 700;
+  letter-spacing: 1.8px;
 }
 
 .title {
   margin: 0;
   text-align: center;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #0e2f22;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #075366;
 }
 
 .subtitle {
-  margin: 18px 0 36px;
+  margin: 13px 0 32px;
   text-align: center;
-  font-size: 1.1rem;
-  color: #60756a;
-  line-height: 1.6;
+  font-size: 0.98rem;
+  color: #718b91;
+  line-height: 1.7;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  margin-bottom: 22px;
+  margin-bottom: 19px;
 }
 
 .formGroup label {
-  margin-bottom: 10px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #102e22;
+  margin-bottom: 9px;
+  font-size: 0.98rem;
+  font-weight: 750;
+  color: #155467;
 }
 
 .formGroup input {
   width: 100%;
-  padding: 18px 18px;
-  border: 1px solid #cbd8d0;
+  box-sizing: border-box;
+  padding: 16px 18px;
+
+  border: 2px solid #d9eeee;
   border-radius: 14px;
+
   font-size: 1rem;
-  color: #17392b;
-  background-color: #fbfdfb;
+  color: #124c5c;
+  background: rgba(245, 253, 252, 0.95);
+
   outline: none;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
 .formGroup input::placeholder {
-  color: #7e9087;
+  color: #9bb5b8;
+}
+
+.formGroup input:hover {
+  border-color: #80d5cb;
+  background: white;
 }
 
 .formGroup input:focus {
-  border-color: #1f7a53;
-  box-shadow: 0 0 0 4px rgba(31, 122, 83, 0.12);
-  background-color: #ffffff;
+  border-color: #00aaa3;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(0, 184, 176, 0.13);
+  transform: translateY(-1px);
 }
 
 .togglePassword {
   align-self: flex-end;
-  margin-top: -6px;
+  margin-top: -7px;
   margin-bottom: 18px;
+
   background: none;
   border: none;
-  color: #1f7a53;
-  font-size: 0.98rem;
+  color: #008e91;
+
+  font-size: 0.92rem;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 700;
+  transition: color 0.2s ease;
 }
 
 .togglePassword:hover {
+  color: #ff805d;
   text-decoration: underline;
 }
 
 .error {
-  margin: 0 0 18px;
-  color: #b42318;
-  background-color: #fff2f0;
-  border: 1px solid #f3c6c1;
+  margin: 8px 0 12px;
+  color: #a52c20;
+  background: #fff1ed;
+  border: 1px solid #ffd1c5;
   padding: 12px 14px;
-  border-radius: 10px;
-  font-size: 0.95rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
 }
 
 .loginButton {
-  margin-top: 8px;
+  margin-top: 14px;
   width: 100%;
-  padding: 18px;
-  background: linear-gradient(135deg, #1f7a53, #2f9d6b);
-  color: #ffffff;
+  padding: 17px;
+
+  background: linear-gradient(120deg, #00a99f, #08bdb0, #0799b7);
+  color: white;
+
   border: none;
   border-radius: 14px;
-  font-size: 1.25rem;
-  font-weight: 700;
+
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+
+  box-shadow: 0 9px 22px rgba(0, 160, 155, 0.28);
+  transition: all 0.3s ease;
 }
 
 .loginButton:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(31, 122, 83, 0.18);
-  opacity: 0.98;
+  background: linear-gradient(120deg, #008d8b, #009f9b, #087f9c);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 140, 140, 0.35);
 }
 
 .loginButton:active {
   transform: translateY(0);
 }
 
+.loginButton:focus-visible,
+.togglePassword:focus-visible {
+  outline: 3px solid #ffad48;
+  outline-offset: 4px;
+}
+
 @media (max-width: 640px) {
+  .container {
+    padding: 22px 14px;
+    background-attachment: scroll;
+  }
+
   .loginCard {
-    padding: 32px 22px 28px;
-    border-radius: 18px;
+    padding: 35px 23px;
+    border-radius: 23px;
   }
 
   .logo {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
-  .formGroup label {
-    font-size: 1rem;
-  }
-
-  .togglePassword {
-    font-size: 0.9rem;
+  .formGroup input {
+    padding: 15px;
   }
 
   .loginButton {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 16px;
   }
 }

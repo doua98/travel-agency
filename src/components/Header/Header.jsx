@@ -9,6 +9,7 @@ function Header() {
                 <NavLink to="/apropos" className={({isActive}) => isActive ? style.active : ''}>À propos</NavLink>
                 <NavLink to="/destinations" className={({isActive}) => isActive ? style.active : ''}>Destinations</NavLink>
                 <NavLink to="/reservation" className={({isActive}) => isActive ? style.active : ''}>Réservation</NavLink>
+                <NavLink to="/login" className={({isActive}) => isActive ? style.active : ''}>Se connecter</NavLink>
             </nav>
         </header>
     
